@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t pushpana/docker-react -f Dockerfile.dev .
+build:
+  - docker run -e CI=true pushpana/docker-react npm run test
